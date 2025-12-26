@@ -1,5 +1,3 @@
-import domainRoutes from './routes/domains.js';
-app.use('/api/domains', domainRoutes);
 import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
@@ -7,6 +5,7 @@ import dotenv from 'dotenv';
 import passport from 'passport';
 import session from 'express-session';
 import authRoutes from './routes/auth.js';
+import domainRoutes from './routes/domains.js';
 
 // Load environment variables
 dotenv.config();
@@ -14,6 +13,7 @@ dotenv.config();
 const app = express();
 app.use(cors({ origin: 'http://localhost:3000', credentials: true }));
 app.use(express.json());
+app.use('/api/domains', domainRoutes);
 
 // Passport config (Google strategy placeholder)
 import { Strategy as GoogleStrategy } from 'passport-google-oauth20';

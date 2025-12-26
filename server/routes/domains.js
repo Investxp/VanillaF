@@ -1,3 +1,10 @@
+import express from 'express';
+import jwt from 'jsonwebtoken';
+import Domain from '../models/Domain.js';
+import User from '../models/User.js';
+
+const router = express.Router();
+
 // Delete a domain by ID
 router.delete('/:id', auth, async (req, res) => {
   try {
@@ -8,12 +15,6 @@ router.delete('/:id', auth, async (req, res) => {
     res.status(500).json({ msg: 'Server error' });
   }
 });
-import express from 'express';
-import jwt from 'jsonwebtoken';
-import Domain from '../models/Domain.js';
-import User from '../models/User.js';
-
-const router = express.Router();
 
 // JWT auth middleware
 function auth(req, res, next) {
