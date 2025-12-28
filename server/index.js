@@ -13,8 +13,8 @@ dotenv.config();
 const app = express();
 // Allow CORS from environment or localhost for dev
 const allowedOrigins = [
-  process.env.CLIENT_URL || 'https://client-production-8540.up.railway.app',
-  'https://client-production-8540.up.railway.app'
+  process.env.CLIENT_URL || 'https://client-production-8540.up.railway.app', // Update here if client URL changes
+  'https://client-production-8540.up.railway.app' // Update here if client URL changes
 ];
 app.use(cors({
   origin: function (origin, callback) {

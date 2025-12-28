@@ -1,4 +1,4 @@
-const API_URL = process.env.REACT_APP_API_URL || 'https://server-production-aebe.up.railway.app';
+const API_URL = process.env.REACT_APP_API_URL || 'https://server-production-aebe.up.railway.app'; // Update here if server URL changes
 
 export async function login(email, password) {
   const res = await fetch(`${API_URL}/api/auth/login`, {

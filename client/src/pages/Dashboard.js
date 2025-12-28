@@ -60,7 +60,7 @@ const Dashboard = () => {
     setLoading(true);
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch(`${process.env.REACT_APP_API_URL || 'https://server-production-aebe.up.railway.app'}/api/domains/${id}`, {
+      const res = await fetch(`${process.env.REACT_APP_API_URL || 'https://server-production-aebe.up.railway.app'}/api/domains/${id}`, { // Update here if server URL changes
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${token}` }
       });

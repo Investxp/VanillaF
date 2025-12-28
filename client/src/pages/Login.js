@@ -26,7 +26,7 @@ const Login = () => {
   };
 
   const handleGoogle = () => {
-    window.location.href = `${process.env.REACT_APP_API_URL || 'https://server-production-aebe.up.railway.app'}/api/auth/google`;
+    window.location.href = `${process.env.REACT_APP_API_URL || 'https://server-production-aebe.up.railway.app'}/api/auth/google`; // Update here if server URL changes
   };
 
   return (
