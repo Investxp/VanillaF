@@ -84,26 +84,6 @@ router.post('/:id/revoke-key', auth, async (req, res) => {
     res.status(500).json({ msg: 'Server error' });
   }
 });
-import express from 'express';
-import jwt from 'jsonwebtoken';
-import Site from '../models/Site.js';
-import Domain from '../models/Domain.js';
-
-const router = express.Router();
-
-// JWT auth middleware
-function auth(req, res, next) {
-  const authHeader = req.headers.authorization;
-  if (!authHeader || !authHeader.startsWith('Bearer ')) return res.status(401).json({ msg: 'No token' });
-  const token = authHeader.split(' ')[1];
-  try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    req.user = decoded.id;
-    next();
-  } catch {
-    res.status(401).json({ msg: 'Invalid token' });
-  }
-}
 
 // Get all sites for a user
 router.get('/', auth, async (req, res) => {
