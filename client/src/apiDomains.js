@@ -1,4 +1,4 @@
-const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+const API_URL = process.env.REACT_APP_API_URL || 'https://server-production-aebe.up.railway.app';
 
 export async function getDomains(token) {
   const res = await fetch(`${API_URL}/api/domains`, {
