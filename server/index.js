@@ -6,6 +6,8 @@ import passport from 'passport';
 import session from 'express-session';
 import authRoutes from './routes/auth.js';
 import domainRoutes from './routes/domains.js';
+import siteRoutes from './routes/sites.js';
+import dashboardRoutes from './routes/dashboard.js';
 
 // Load environment variables
 dotenv.config();
@@ -30,6 +32,13 @@ app.use(cors({
 }));
 app.use(express.json());
 app.use('/api/domains', domainRoutes);
+app.use('/api/sites', siteRoutes);
+app.use('/api/dashboard', dashboardRoutes);
+
+// Health check endpoint
+app.get('/api/health', (req, res) => {
+  res.json({ status: 'ok' });
+});
 
 // Passport config (Google strategy placeholder)
 import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
