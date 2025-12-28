@@ -45,7 +45,7 @@ router.get('/google/callback', passport.authenticate('google', { failureRedirect
   const user = req.user;
   const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1d' });
   // Redirect to frontend with token in query param
-  res.redirect(`${process.env.CLIENT_URL || 'http://localhost:3000'}/dashboard?token=${token}`);
+  res.redirect(`${process.env.CLIENT_URL || 'https://client-production-8540.up.railway.app'}/dashboard?token=${token}`);
 });
 
 export default router;
