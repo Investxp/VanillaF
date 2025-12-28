@@ -15,16 +15,21 @@ dotenv.config();
 const app = express();
 // Allow CORS from environment or localhost for dev
 const allowedOrigins = [
-  process.env.CLIENT_URL || 'https://client-production-8540.up.railway.app', // Update here if client URL changes
-  'https://client-production-8540.up.railway.app' // Update here if client URL changes
+  process.env.CLIENT_URL || 'https://client-production-8540.up.railway.app',
+  'https://client-production-8540.up.railway.app',
+  'http://localhost:3000',
+  'http://127.0.0.1:3000'
 ];
 app.use(cors({
   origin: function (origin, callback) {
     // allow requests with no origin (like mobile apps, curl, etc.)
     if (!origin) return callback(null, true);
+    // Allow any Railway.app frontend
+    if (origin.endsWith('.railway.app')) return callback(null, true);
     if (allowedOrigins.indexOf(origin) !== -1) {
       return callback(null, true);
     } else {
+      console.warn('CORS not allowed from this origin:', origin);
       return callback(new Error('CORS not allowed from this origin: ' + origin), false);
     }
   },
