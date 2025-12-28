@@ -63,17 +63,7 @@ app.use(passport.session());
 app.use('/api/auth', authRoutes);
 
 
-import path from 'path';
-import { fileURLToPath } from 'url';
-
-// Serve React build static files in production
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const clientBuildPath = path.join(__dirname, '../client/build');
-app.use(express.static(clientBuildPath));
-app.get('*', (req, res) => {
-  res.sendFile(path.join(clientBuildPath, 'index.html'));
-});
+// Removed serving React build in production for Railway deployment
 
 
 // Check required environment variables
