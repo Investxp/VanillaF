@@ -37,6 +37,12 @@ const Register = () => {
           <TextField margin="normal" required fullWidth label="Password" type="password" value={password} onChange={e => setPassword(e.target.value)} />
           <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }} disabled={loading}>{loading ? 'Signing up...' : 'Sign Up'}</Button>
         </form>
+        <Button fullWidth variant="outlined" sx={{ mb: 2 }} onClick={() => window.location.href = "https://hub.deriv.com/tradershub/signup?t=113994&utm_campaign=myaffiliates"}>
+          Sign up with Deriv
+        </Button>
+        <Button fullWidth variant="outlined" sx={{ mb: 2 }} color="primary" onClick={() => window.location.href = "https://hub.deriv.com/tradershub/signup?t=113994&utm_campaign=myaffiliates"}>
+          Sign in with Deriv
+        </Button>
       </Box>
     </Container>
   );
