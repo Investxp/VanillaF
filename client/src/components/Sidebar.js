@@ -3,12 +3,14 @@ import { Drawer, List, ListItem, ListItemIcon, ListItemText, Toolbar, Box } from
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import DomainIcon from '@mui/icons-material/Language';
 import SiteIcon from '@mui/icons-material/Web';
+import AndroidIcon from '@mui/icons-material/Android';
 import { Link, useLocation } from 'react-router-dom';
 
 const menuItems = [
   { text: 'Dashboard', icon: <DashboardIcon />, path: '/dashboard' },
   { text: 'Domains', icon: <DomainIcon />, path: '/domains' },
   { text: 'Sites', icon: <SiteIcon />, path: '/sites' },
+  { text: 'DBot Blockly', icon: <AndroidIcon />, path: '/dbot' },
 ];
 
 const Sidebar = () => {

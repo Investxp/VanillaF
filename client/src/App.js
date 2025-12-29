@@ -8,6 +8,7 @@ import Sites from './pages/Sites';
 import Domains from './pages/Domains';
 import Profile from './pages/Profile';
 import DashboardLayout from './components/DashboardLayout';
+import DBotBlockly from './pages/DBotBlockly';
 
 function App() {
   return (
@@ -44,6 +45,14 @@ function App() {
           element={
             <DashboardLayout>
               <Profile />
+            </DashboardLayout>
+          }
+        />
+        <Route
+          path="/dbot"
+          element={
+            <DashboardLayout>
+              <DBotBlockly />
             </DashboardLayout>
           }
         />
