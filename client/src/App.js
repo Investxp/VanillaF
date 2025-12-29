@@ -7,6 +7,7 @@ import Dashboard from './pages/Dashboard';
 import Sites from './pages/Sites';
 import Domains from './pages/Domains';
 import Profile from './pages/Profile';
+import DashboardLayout from './components/DashboardLayout';
 
 function App() {
   return (
@@ -14,10 +15,38 @@ function App() {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/sites" element={<Sites />} />
-        <Route path="/domains" element={<Domains />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route
+          path="/dashboard"
+          element={
+            <DashboardLayout>
+              <Dashboard />
+            </DashboardLayout>
+          }
+        />
+        <Route
+          path="/sites"
+          element={
+            <DashboardLayout>
+              <Sites />
+            </DashboardLayout>
+          }
+        />
+        <Route
+          path="/domains"
+          element={
+            <DashboardLayout>
+              <Domains />
+            </DashboardLayout>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <DashboardLayout>
+              <Profile />
+            </DashboardLayout>
+          }
+        />
       </Routes>
     </Router>
   );
