@@ -1,4 +1,13 @@
+
+import express from 'express';
+import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
+import passport from 'passport';
+import User from '../models/User.js';
 import fetch from 'node-fetch';
+
+const router = express.Router();
+
 // Deriv OAuth callback
 router.get('/deriv/callback', async (req, res) => {
   const { code } = req.query;
@@ -43,13 +52,6 @@ router.get('/deriv/callback', async (req, res) => {
     res.status(500).json({ msg: 'Deriv OAuth failed' });
   }
 });
-import express from 'express';
-import bcrypt from 'bcryptjs';
-import jwt from 'jsonwebtoken';
-import passport from 'passport';
-import User from '../models/User.js';
-
-const router = express.Router();
 
 // Register
 router.post('/register', async (req, res) => {
