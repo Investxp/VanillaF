@@ -77,7 +77,20 @@ app.use(passport.session());
 app.use('/api/auth', authRoutes);
 
 
-// Removed serving React build in production for Railway deployment
+
+// Serve React build in production
+import path from 'path';
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+if (process.env.NODE_ENV === 'production') {
+  const clientBuildPath = path.join(__dirname, '../client/build');
+  app.use(express.static(clientBuildPath));
+  app.get('*', (req, res) => {
+    if (req.path.startsWith('/api/')) return res.status(404).json({ error: 'API route not found' });
+    res.sendFile(path.join(clientBuildPath, 'index.html'));
+  });
+}
 
 
 // Check required environment variables
